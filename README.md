@@ -18,7 +18,7 @@ python
 #### 環境構築
 1. docker-compose.ymlのあるディレクトリで`docker-compose up -d` を実行
 
-#### csvファイルからデータを読み取り、txtファイルへ出力
+#### 【output.py】csvファイルからデータを読み取り、txtファイルへ出力
 ##### 1. csvファイルの用意
 1. 1列目にリンクのテキスト、2列目にリンクのURLを記入
 
@@ -27,6 +27,14 @@ python
 1. `docker exec -it {コンテナID} bash` でコンテナに入る
 1. `cd opt` でoptディレクトリへ移動
 1. optディレクトリ内にoutput.txtが出力されていることを確認
+
+#### 【markdown_to_list_csv.py】csvファイルからデータを読み取り、csvへ出力
+##### 1. csvファイルの用意
+1. markdown.csvの1列目にマークダウン形式で記述された表における行を記入
+
+##### 2. csvファイルの出力
+1. `python markdown_to_list_csv.py` でlist.csvを出力  
+　（形式はoutput.pyで読み取るlist.csvと同じ）
 
 #### 補足
 - 列数を増やしたい場合は出力フォーマットを記述している箇所の `|` を増やすことで追加が可能です。（outpyt.py 18行目付近）  
