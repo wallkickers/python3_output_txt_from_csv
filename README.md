@@ -14,6 +14,13 @@
 | 3 | [タイトル3](URL3) |     タイトル3,URL3
 ```
 
+##### C： csvファイルからデータを読み取り、txtファイルへマークダウン形式の表における行部分を出力するプログラム
+```
+タイトル1,URL1,タイトル1',URL1'     | 1 | [タイトル1](URL1) | [タイトル1'](URL1') |
+タイトル2,URL2,タイトル2',URL2'  →  | 2 | [タイトル2](URL2) | [タイトル2'](URL2') |
+タイトル3,URL3,タイトル3',URL3'     | 3 | [タイトル3](URL3) | [タイトル3'](URL3') |
+```
+
 #### 実行環境
 | 環境 | ver. |
 | ------------- | ------------- |
@@ -26,6 +33,7 @@ python
 &nbsp;&nbsp;├ docker-compose.yml  
 &nbsp;&nbsp;└ opt  
 &nbsp;&nbsp;&nbsp;&nbsp;└ output.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└ output_add_column.py  
 &nbsp;&nbsp;&nbsp;&nbsp;└ markdown_to_list_csv.py  
 &nbsp;&nbsp;&nbsp;&nbsp;└ list.csv  
 &nbsp;&nbsp;&nbsp;&nbsp;└ markdown_to_list.csv  
@@ -50,6 +58,16 @@ python
 
 ##### 2. csvファイルの出力
 1. `python markdown_to_list_csv.py` で実行。list.csvを出力  
+　（コンテナへの入り方は機能Aの手順2と同じ）
+
+#### C： csvファイルからデータを読み取り、3列目が入力されている場合は3カラム目もtxtファイルへマークダウン形式の表における行部分を出力するプログラム(output_add_column.py)
+
+##### 1. csvファイルの用意
+1. 1列目にリンクのテキスト、2列目にリンクのURLを記入
+1. 3列目にリンクのテキスト、4列目にリンクのURLを記入
+
+##### 2. txtファイルの出力
+1. `python output_add_column.py` で実行。optディレクトリ内にoutput.txtが出力されていることを確認  
 　（コンテナへの入り方は機能Aの手順2と同じ）
 
 #### 補足
