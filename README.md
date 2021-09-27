@@ -1,24 +1,32 @@
 ## python3_output_txt_from_csv
 ### 機能
-##### A： csvファイルからデータを読み取り、txtファイルへマークダウン形式の表における行部分を出力するプログラム
+##### A： csvファイルからデータを読み取り、txtファイルへマークダウン形式の表における行部分を出力するプログラム【output.py】
 ```
 タイトル1,URL1     | 1 | [タイトル1](URL1) |
 タイトル2,URL2  →  | 2 | [タイトル2](URL2) |
 タイトル3,URL3     | 3 | [タイトル3](URL3) |
 ```
 
-##### B： マークダウン形式で形式の表における行部分が記載されたcsvファイルからデータを読み取り、csvへ出力するプログラム
+##### B： マークダウン形式で形式の表における行部分が記載されたcsvファイルからデータを読み取り、csvへ出力するプログラム【markdown_to_list_csv.py】
 ```
-| 1 | [タイトル1](URL1) |     タイトル1,URL1
-| 2 | [タイトル2](URL2) |  →  タイトル2,URL2
-| 3 | [タイトル3](URL3) |     タイトル3,URL3
+| 1 | [タイトル1](URL1) | [タイトル1'](リンク1') |     タイトル1,URL1,タイトル1',URL1'
+| 1 | [タイトル2](URL2) | [タイトル2'](リンク2') |  →  タイトル2,URL2,タイトル2',URL2'
+| 1 | [タイトル3](URL3) | [タイトル3'](リンク3') |     タイトル3,URL3,タイトル3',URL3'
 ```
 
-##### C： csvファイルからデータを読み取り、txtファイルへマークダウン形式の表における行部分を出力するプログラム
+##### C： csvファイルからデータを読み取り、txtファイルへマークダウン形式の表における行部分を出力するプログラム【output_add_column.py】
 ```
 タイトル1,URL1,タイトル1',URL1'     | 1 | [タイトル1](URL1) | [タイトル1'](URL1') |
 タイトル2,URL2,タイトル2',URL2'  →  | 2 | [タイトル2](URL2) | [タイトル2'](URL2') |
 タイトル3,URL3,タイトル3',URL3'     | 3 | [タイトル3](URL3) | [タイトル3'](URL3') |
+```
+
+##### D： csvファイルの1行目をヘッダー,　以降の行を内容として出力するプログラム【output_table.py】
+```
+ヘッダー1,ヘッダー2,ヘッダー3       | ヘッダー1 | ヘッダー2 | ヘッダー3 |
+内容1,内容2,内容3              →   | ------------- | ------------- | ------------- |
+内容1,内容2,内容3                  | 内容1 | 内容2 | 内容3 |
+                                  | 内容1 | 内容2 | 内容3 |
 ```
 
 #### 実行環境
@@ -32,11 +40,16 @@ python
 &nbsp;&nbsp;├ Dockerfile  
 &nbsp;&nbsp;├ docker-compose.yml  
 &nbsp;&nbsp;└ opt  
-&nbsp;&nbsp;&nbsp;&nbsp;└ output.py  
-&nbsp;&nbsp;&nbsp;&nbsp;└ output_add_column.py  
-&nbsp;&nbsp;&nbsp;&nbsp;└ markdown_to_list_csv.py  
-&nbsp;&nbsp;&nbsp;&nbsp;└ list.csv  
-&nbsp;&nbsp;&nbsp;&nbsp;└ markdown_to_list.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;├ output.py  
+&nbsp;&nbsp;&nbsp;&nbsp;├ output_table.py  
+&nbsp;&nbsp;&nbsp;&nbsp;├ output_add_column.py  
+&nbsp;&nbsp;&nbsp;&nbsp;├ markdown_to_list_csv.py  
+&nbsp;&nbsp;&nbsp;&nbsp;├ list.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;├ markdown_to_list.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;└ data  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├ list.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├ markdown.csv  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└ output.txt  
 
 #### 環境構築
 1. docker-compose.ymlのあるディレクトリで`docker-compose up -d` を実行
