@@ -1,17 +1,20 @@
 import csv
 
 """
- list.csvからデータを読み取り、output.txtへ出力する。
+ csv→マークダウン形式の表における行 に変換
+ input：list.csv
+ output：output.txt
  実行コマンド：python output.py
  出力書式：| index(1~) | [テキスト](リンク) |
 """
 def main():
-    data_file = 'list.csv'
-    output_file = 'output.txt'
+    OUTPUT_PATH = './data/'
+    DATA_FILE = OUTPUT_PATH + 'list.csv'
+    OUTPUT_FILE = OUTPUT_PATH + 'output.txt'
     output_list = []
 
     # csvファイル読み取り
-    with open(data_file, 'r') as f:
+    with open(DATA_FILE, 'r') as f:
         reader = csv.reader(f)
 
         for index, line in enumerate(reader):
@@ -19,7 +22,7 @@ def main():
             output_list.append(s)
 
     # txtファイルへ出力
-    with open(output_file, 'w') as f2:
+    with open(OUTPUT_FILE, 'w') as f2:
         for line in output_list:
             f2.write(line)
 
