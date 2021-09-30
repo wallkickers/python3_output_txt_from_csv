@@ -63,7 +63,7 @@ python
 1. `docker ps` でコンテナIDを確認
 1. `docker exec -it {コンテナID} bash` でコンテナに入る
 1. `cd opt` でoptディレクトリへ移動
-1. optディレクトリ内にoutput.txtが出力されていることを確認
+1. opt/data/ディレクトリ内にoutput.txtが出力されていることを確認
 
 #### B： マークダウン形式で形式の表における行部分が記載されたcsvファイルからデータを読み取り、csvへ出力するプログラム(markdown_to_list_csv.py)
 ##### 1. csvファイルの用意
@@ -80,7 +80,16 @@ python
 1. 3列目にリンクのテキスト、4列目にリンクのURLを記入
 
 ##### 2. txtファイルの出力
-1. `python output_add_column.py` で実行。optディレクトリ内にoutput.txtが出力されていることを確認  
+1. `python output_add_column.py` で実行。opt/data/ディレクトリ内にoutput.txtが出力されていることを確認  
+　（コンテナへの入り方は機能Aの手順2と同じ）
+ 
+#### D： csvファイルの1行目をヘッダー,　以降の行を表の内容として出力するプログラム(output_table.py)
+
+##### 1. csvファイルの用意
+1. 1列目に表のヘッダー部、2列目以降に表の内容部を記入
+
+##### 2. txtファイルの出力
+1. `python output_table.py` で実行。opt/data/ディレクトリ内にoutput.txtが出力されていることを確認  
 　（コンテナへの入り方は機能Aの手順2と同じ）
 
 #### 補足
